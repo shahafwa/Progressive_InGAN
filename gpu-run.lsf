@@ -1,0 +1,19 @@
+#BSUB -J "PinGAN"                            # Job Name
+#BSUB -L /bin/bash                            # SIMILAR TO #!/bin/bash
+#BSUB -m ibdgx006                            # QUEUE TO RUN IN
+#BSUB -q waic-long                            # QUEUE TO RUN IN
+#BSUB -gpu num=1:mode=exclusive_process       # NUM OF GPUS
+#BSUB -R rusage[mem=40192]                     # MEMORY IN MB
+#BSUB -o "/home/labs/waic/shahafw/Desktop/NewTest/logs/%J_%I/logs/%J_%I.out"             # WHERE TO SAVE STDOUT
+#BSUB -e "/home/labs/waic/shahafw/Desktop/NewTest/logs/%J_%I.err"             # WHERE TO SAVE STDERR
+
+# WORKAROUND. MIGHT BE REMOVED IN THE FUTURE (HOPEFULLY).
+. /apps/RH7U2/Modules/default/etc/profile.modules
+
+# ACTIVATE YOUR CONDA ENVIRONMENT
+module load anaconda/3.7.3; . activate;
+conda activate gpu20
+
+# RUN YOUR CODE
+python train.py
+

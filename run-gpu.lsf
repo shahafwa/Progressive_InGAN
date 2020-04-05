@@ -1,0 +1,19 @@
+#BSUB -J "PinGAN"                              # CHANGE JOB NAME
+#BSUB -q waic-long                            # QUEUE TO RUN IN
+#BSUB -gpu num=1:mode=exclusive_process       # NUM OF GPUS
+#BSUB -R rusage[mem=50192]                     # MEMORY IN MB
+#BSUB -o "/home/labs/waic/shahafw/Desktop/NewTest/logs/%J_%I.out"             # WHERE TO SAVE STDOUT
+#BSUB -e "/home/labs/waic/shahafw/Desktop/NewTest/logs/%J_%I.err"             # WHERE TO SAVE STDERR
+
+# WORKAROUND
+. /etc/profile
+export XDG_RUNTIME_DIR="$(mktemp -d -t xdg-XXXXXXXXXX)" 
+export DISPLAY=math15-lx.wisdom.weizmann.ac.il:29
+chmod 700 $XDG_RUNTIME_DIR
+# ACTIVATE YOUR CONDA ENVIRONMENT
+module load anaconda/3.7.3; . activate;
+conda activate gpu20
+
+
+# RUN YOUR CODE
+python train.py

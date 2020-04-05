@@ -1,5 +1,27 @@
 # ProgressiveInGAN
-ProgressiveInGAN
+## Paper: InGAN: Capturing and Remapping the "DNA" of a Natural Image
+http://www.wisdom.weizmann.ac.il/~vision/ingan/
+
+### Description
+In this project I used InGan idea and used Progressive GAN in order to do great inhancment in the performance.
+
+### Install
+
+This project requires **Python 3.x** and the following Python libraries installed:
+
+- [NumPy](http://www.numpy.org/)
+- [Pandas](http://pandas.pydata.org)
+- [matplotlib](http://matplotlib.org/)
+- [scikit-learn](http://scikit-learn.org/stable/)
+- [pytorch]
+- [websocket]
+
+You will also need to have software installed to run and execute an [iPython Notebook](http://ipython.org/notebook.html)
+
+We recommend to install [Anaconda](https://www.continuum.io/downloads), a pre-packaged Python distribution that contains all of the necessary libraries and software for this project. 
+
+
+### Run
 
 In order to use the code you need to run the train.py file , marked line in there can be updated as the epochs in each stage. 
 for example : 
@@ -13,4 +35,12 @@ image name and output folder is determined at the config file also at the of it.
 in case of using a slackbot add true as a last argument to trainer.train and you will get update, make sure you change at slack_weizmann.py
 the arguments of SLACK_BOT_TOKEN  and SLACK_OAUTH_TOKEN  to the relevant token which can be achieved from the slack api.
 
-Enjoy!
+### Data
+
+Any image(Such as those which are inside the git) can be added, you need one image to do all the learning.
+
+
+**Target**
+- `Generation`: Generate a new image using the given image.
+
+
